@@ -1,0 +1,379 @@
+.dashboard-container {
+  font-family: 'Outfit', sans-serif;
+  min-height: 100vh;
+  background-color: #ffffff;
+  color: #1e293b;
+  padding-bottom: 3rem;
+}
+
+/* Glassmorphic/Sleek Navbar (Ford Blue corporate identity) */
+.navbar {
+  background: #061129;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  height: 70px;
+}
+
+.navbar-logo {
+  height: 42px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.nav-link {
+  color: #94a3b8;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0.25rem 0;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #2563eb;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ffffff;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: #ffffff;
+}
+
+.nav-link.active::after {
+  width: 100%;
+  background-color: #2563eb;
+}
+
+.logout-btn {
+  border-radius: 8px;
+  font-weight: 500;
+  padding: 0.35rem 1rem;
+}
+
+/* Premium Light Cards */
+.glass-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-card:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+  border-color: #cbd5e1;
+}
+
+.card-header-custom {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.step-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  background-color: rgba(37, 99, 235, 0.08);
+  color: #2563eb;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.card-title-custom {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #0f172a;
+  letter-spacing: 0.5px;
+}
+
+.text-muted-custom {
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+/* Form and Dropdown Selection styling */
+.form-control, .form-select {
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  color: #0f172a;
+  font-size: 0.95rem;
+  padding: 0.65rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+  background-color: #ffffff;
+  border-color: #2563eb;
+  color: #0f172a;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.dropdown-custom {
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* VIN Quick Links */
+.vin-quick-links {
+  max-height: 180px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.vin-quick-links::-webkit-scrollbar {
+  width: 4px;
+}
+
+.vin-quick-links::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.vin-link {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #475569;
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-family: monospace;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.vin-link:hover {
+  background: rgba(37, 99, 235, 0.05);
+  border-color: rgba(37, 99, 235, 0.3);
+  color: #2563eb;
+}
+
+.vin-link.active-vin {
+  background: rgba(37, 99, 235, 0.08);
+  border-color: #2563eb;
+  color: #2563eb;
+  font-weight: bold;
+}
+
+.alert-danger-custom {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+  font-size: 0.85rem;
+  padding: 0.65rem;
+  border-radius: 6px;
+}
+
+/* KPI Widgets */
+.kpi-card {
+  transition: all 0.3s ease;
+  min-height: 85px;
+}
+
+.kpi-icon-wrapper {
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sales-bg {
+  background: rgba(245, 158, 11, 0.08);
+  color: #b45309;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.connected-bg {
+  background: rgba(16, 185, 129, 0.08);
+  color: #047857;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.updates-bg {
+  background: rgba(37, 99, 235, 0.08);
+  color: #1d4ed8;
+  border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+.kpi-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.kpi-value {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* Center Display Vehicle Image (Pure White background to blend perfectly) */
+.center-display-card {
+  min-height: 280px;
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.vehicle-title-display {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #334155;
+}
+
+.display-vehicle-img {
+  width: 70%;
+  max-width: 420px;
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.08));
+  animation: floatImg 5s ease-in-out infinite;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.display-vehicle-img:hover {
+  transform: scale(1.03);
+}
+
+.vehicle-indicator-bar {
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #2563eb, transparent);
+  border-radius: 2px;
+}
+
+/* Table Custom Design (Light and Clean) */
+.table-custom {
+  background: transparent;
+  color: #334155;
+}
+
+.table-custom th {
+  background: #f8fafc;
+  color: #475569;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  padding: 0.75rem 1rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.table-custom td {
+  padding: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 0.9rem;
+}
+
+/* Progress bar inside table */
+.progress-custom {
+  height: 6px;
+  background-color: #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-custom .progress-bar {
+  border-radius: 4px;
+}
+
+/* Status badging */
+.badge-status {
+  padding: 0.4rem 0.75rem;
+  border-radius: 30px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 0.5px;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-active {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.status-active .status-dot {
+  background-color: #10b981;
+  box-shadow: 0 0 6px #10b981;
+}
+
+.status-inactive {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+}
+
+.status-inactive .status-dot {
+  background-color: #64748b;
+}
+
+.bg-success-custom {
+  background-color: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  color: #047857;
+  font-family: monospace;
+  font-size: 0.85rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+}
+
+.coordinate-text {
+  font-family: monospace;
+  color: #475569;
+}
+
+.text-dark-custom {
+  color: #0f172a;
+}
+
+/* Floating animation */
+@keyframes floatImg {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Responsive fixes */
+@media (max-width: 991px) {
+  .center-display-card {
+    min-height: 220px;
+  }
+  .display-vehicle-img {
+    width: 80%;
+  }
+}
