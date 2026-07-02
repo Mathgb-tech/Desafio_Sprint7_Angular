@@ -6,7 +6,6 @@
   background-color: #0c1938;
   overflow: hidden;
 }
-
 /* Left side: Premium vehicle preview */
 .login-image {
   width: 55%;
@@ -16,7 +15,6 @@
   justify-content: center;
   position: relative;
 }
-
 .login-image::after {
   content: '';
   position: absolute;
@@ -26,13 +24,11 @@
   height: 150px;
   pointer-events: none;
 }
-
 .ranger-img {
   width: 85%;
   max-width: 580px;
   animation: floatVehicle 6s ease-in-out infinite;
 }
-
 /* Right side: Login form */
 .login-form-container {
   width: 45%;
@@ -45,7 +41,6 @@
   box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
   border-left: 1px solid rgba(255, 255, 255, 0.05);
 }
-
 .form-wrapper {
   width: 100%;
   max-width: 400px;
@@ -57,7 +52,6 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 }
-
 .logo {
   width: 120px;
   display: block;
@@ -65,24 +59,20 @@
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
   transition: transform 0.3s ease;
 }
-
 .logo:hover {
   transform: scale(1.05);
 }
-
 h3 {
   color: #ffffff;
   font-weight: 700;
   letter-spacing: 0.5px;
   font-size: 1.8rem;
 }
-
 p {
   color: #a0aec0;
   font-weight: 300;
   font-size: 0.95rem;
 }
-
 .form-label {
   color: #cbd5e0;
   font-size: 0.85rem;
@@ -91,7 +81,6 @@ p {
   margin-bottom: 0.5rem;
   text-transform: uppercase;
 }
-
 .form-control {
   background-color: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -101,18 +90,15 @@ p {
   font-size: 0.95rem;
   transition: all 0.3s ease;
 }
-
 .form-control:focus {
   background-color: rgba(255, 255, 255, 0.08);
   border-color: #3b82f6;
   box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.25);
   color: #ffffff;
 }
-
 .form-control::placeholder {
   color: #718096;
 }
-
 /* Submit Button */
 .btn-primary {
   background: linear-gradient(90deg, #1d4ed8 0%, #2563eb 100%);
@@ -126,17 +112,14 @@ p {
   transition: all 0.3s ease;
   margin-top: 0.5rem;
 }
-
 .btn-primary:hover {
   background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(37, 99, 235, 0.5);
 }
-
 .btn-primary:active {
   transform: translateY(0);
 }
-
 /* Error message banner */
 .erromensagem {
   background-color: rgba(239, 68, 68, 0.1);
@@ -150,7 +133,6 @@ p {
   justify-content: center;
   animation: shake 0.4s ease-in-out;
 }
-
 /* Animations */
 @keyframes floatVehicle {
   0% {
@@ -163,20 +145,161 @@ p {
     transform: translateY(0px) rotate(0deg);
   }
 }
-
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
   25% { transform: translateX(-6px); }
   75% { transform: translateX(6px); }
 }
+/* ==========================================
+   RESPONSIVIDADE MOBILE — Design Moderno
+   ========================================== */
 
-/* Responsive adjustment */
+/* Tablet (≤ 992px): imagem some, formulário ocupa tudo */
 @media (max-width: 992px) {
   .login-image {
     display: none;
   }
+
   .login-form-container {
     width: 100%;
     border-left: none;
+  }
+}
+
+/* ── Mobile (≤ 768px): Ranger vira fundo, form em glassmorphism ── */
+@media (max-width: 768px) {
+
+  /* Container vira tela cheia com stacking context */
+  .login-container {
+    position: relative;
+    height: 100dvh;
+    overflow: hidden;
+    flex-direction: column;
+  }
+
+  /* A imagem volta a aparecer, agora como fundo absoluto */
+  .login-image {
+    display: flex !important;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: #060e22;
+    overflow: hidden;
+  }
+
+  /* Overlay gradiente escuro sobre a imagem */
+  .login-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      160deg,
+      rgba(6, 14, 34, 0.25) 0%,
+      rgba(10, 20, 50, 0.55) 35%,
+      rgba(6, 14, 34, 0.90) 68%,
+      rgba(6, 14, 34, 1.00) 100%
+    );
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* Ranger cobre o fundo inteiro */
+  .ranger-img {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+    opacity: 0.88;
+    animation: none;
+  }
+
+  /* Formulário fica acima do overlay, alinhado ao rodapé */
+  .login-form-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    box-shadow: none;
+    border-left: none;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0 1.25rem 2.5rem 1.25rem;
+  }
+
+  /* Card com glassmorphism intenso */
+  .form-wrapper {
+    width: 100%;
+    max-width: 440px;
+    padding: 2rem 1.75rem;
+    margin: 0;
+    background: rgba(10, 20, 55, 0.70);
+    backdrop-filter: blur(24px) saturate(1.4);
+    -webkit-backdrop-filter: blur(24px) saturate(1.4);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.60),
+      0 2px 8px rgba(59, 130, 246, 0.10),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    box-sizing: border-box;
+  }
+
+  .logo {
+    width: 90px;
+    margin-bottom: 0.75rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 0.88rem;
+    margin-bottom: 1.2rem !important;
+  }
+
+  .form-label {
+    font-size: 0.8rem;
+  }
+
+  .form-control {
+    background-color: rgba(255, 255, 255, 0.07);
+    padding: 0.65rem 0.9rem;
+    font-size: 0.9rem;
+  }
+
+  .btn-primary {
+    padding: 0.72rem;
+    font-size: 0.95rem;
+    margin-top: 0.25rem;
+  }
+}
+
+/* ── Celular pequeno (≤ 390px) ── */
+@media (max-width: 390px) {
+  .login-form-container {
+    padding: 0 1rem 2rem 1rem;
+  }
+
+  .form-wrapper {
+    padding: 1.75rem 1.25rem;
+    border-radius: 16px;
+  }
+
+  .logo {
+    width: 78px;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  p {
+    font-size: 0.83rem;
   }
 }

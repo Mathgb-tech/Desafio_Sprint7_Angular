@@ -1,5 +1,5 @@
 <div class="dashboard-container">
-    
+
     <nav class="navbar navbar-dark px-4 d-flex justify-content-between align-items-center mb-4">
         <img src="http://localhost:3001/img/ford.png" alt="Ford" class="navbar-logo">
 
@@ -12,23 +12,20 @@
 
     <div class="container-fluid px-4 py-2">
         <div class="row g-4">
-            
+
             <div class="col-lg-4 col-md-5">
                 <div class="d-flex flex-column gap-4">
-                    
+
                     <div class="card glass-card p-4">
                         <div class="card-header-custom mb-3">
                             <span class="step-badge">Passo 8</span>
                             <h5 class="card-title-custom m-0">Selecionar Modelo</h5>
                         </div>
-                        
+
                         <div class="select-wrapper">
                             <label class="form-label text-muted-custom mb-2">Selecione o veículo na lista:</label>
-                            <select 
-                                class="form-select form-select-lg dropdown-custom" 
-                                [ngModel]="selectedVehicle?.id"
-                                (ngModelChange)="onVehicleSelectChange($event)"
-                            >
+                            <select class="form-select form-select-lg dropdown-custom" [ngModel]="selectedVehicle?.id"
+                                (ngModelChange)="onVehicleSelectChange($event)">
                                 <option [value]="null" disabled>Escolha um modelo...</option>
                                 <option *ngFor="let v of vehicles" [value]="v.id">
                                     {{ v.vehicle }}
@@ -36,67 +33,64 @@
                             </select>
                         </div>
                     </div>
-                    
+
                     <div class="card glass-card p-4">
                         <div class="card-header-custom mb-3">
                             <span class="step-badge">Passo 11</span>
                             <h5 class="card-title-custom m-0">Buscar Dados do Veículo (VIN)</h5>
                         </div>
-                        
+
                         <div class="input-group mb-3">
-                            <input 
-                                type="text" 
-                                class="form-control" 
-                                placeholder="Insira o código do veículo (VIN)" 
-                                [ngModel]="vinSearchTerm"
-                                (ngModelChange)="onVinSearchChange($event)"
-                                (keyup.enter)="searchVin()"
-                            >
+                            <input type="text" class="form-control" placeholder="Insira o código do veículo (VIN)"
+                                [ngModel]="vinSearchTerm" (ngModelChange)="onVinSearchChange($event)"
+                                (keyup.enter)="searchVin()">
                             <button class="btn btn-primary px-3" type="button" (click)="searchVin()">
                                 Buscar
                             </button>
                         </div>
-                        
+
                         <div *ngIf="vinErrorMessage" class="alert alert-danger-custom mb-3">
                             {{ vinErrorMessage }}
                         </div>
-                        
+
                         <div>
                             <span class="d-block text-muted-custom mb-2">Códigos de exemplo para testes:</span>
                             <div class="d-flex flex-column gap-2 vin-quick-links">
-                                <a 
-                                    *ngFor="let sampleVin of sampleVins" 
-                                    (click)="selectSampleVin(sampleVin)"
+                                <a *ngFor="let sampleVin of sampleVins" (click)="selectSampleVin(sampleVin)"
                                     class="vin-link d-flex align-items-center justify-content-between"
-                                    [class.active-vin]="vinSearchTerm === sampleVin"
-                                >
+                                    [class.active-vin]="vinSearchTerm === sampleVin">
                                     <span>{{ sampleVin }}</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+                                        viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
                                     </svg>
                                 </a>
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
-            
+
             <div class="col-lg-8 col-md-7">
                 <div class="d-flex flex-column gap-4">
-                    
+
                     <div class="row g-3">
-                        
+
                         <div class="col-md-4">
                             <div class="card glass-card kpi-card p-3 d-flex flex-row align-items-center gap-3">
                                 <div class="kpi-icon-wrapper sales-bg">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-                                        <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1.5a.5.5 0 0 1-.09.294l-.902 1.203a.5.5 0 0 1-.8 0l-.902-1.203A.5.5 0 0 1 10 11.5V10h3Zm-1 4v-1h1v1h-1Zm-7-2v1H4v-1h.5ZM2 2a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V2Zm1 0v8h10V2H3Z"/>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                        viewBox="0 0 16 16">
+                                        <path
+                                            d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1.5a.5.5 0 0 1-.09.294l-.902 1.203a.5.5 0 0 1-.8 0l-.902-1.203A.5.5 0 0 1 10 11.5V10h3Zm-1 4v-1h1v1h-1Zm-7-2v1H4v-1h.5ZM2 2a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V2Zm1 0v8h10V2H3Z" />
                                     </svg>
                                 </div>
                                 <div>
                                     <span class="kpi-label d-block text-muted-custom">Total de Vendas</span>
-                                    <h3 class="kpi-value m-0">{{ selectedVehicle ? (selectedVehicle.volumetotal) : '0' }}</h3>
+                                    <h3 class="kpi-value m-0">{{ selectedVehicle ? (selectedVehicle.volumetotal) : '0'
+                                        }}</h3>
                                 </div>
                             </div>
                         </div>
@@ -104,14 +98,18 @@
                         <div class="col-md-4">
                             <div class="card glass-card kpi-card p-3 d-flex flex-row align-items-center gap-3">
                                 <div class="kpi-icon-wrapper connected-bg">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-                                        <path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2zm13 2v5H1V4h14zm-1 9H2a1 1 0 0 1-1-1v-1h14v1a1 1 0 0 1-1 1z"/>
-                                        <path d="M11 11.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-2 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                        viewBox="0 0 16 16">
+                                        <path
+                                            d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2zm13 2v5H1V4h14zm-1 9H2a1 1 0 0 1-1-1v-1h14v1a1 1 0 0 1-1 1z" />
+                                        <path
+                                            d="M11 11.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-2 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
                                     </svg>
                                 </div>
                                 <div>
                                     <span class="kpi-label d-block text-muted-custom">Veículos Conectados</span>
-                                    <h3 class="kpi-value m-0">{{ selectedVehicle ? (selectedVehicle.connected) : '0' }}</h3>
+                                    <h3 class="kpi-value m-0">{{ selectedVehicle ? (selectedVehicle.connected) : '0' }}
+                                    </h3>
                                 </div>
                             </div>
                         </div>
@@ -119,38 +117,39 @@
                         <div class="col-md-4">
                             <div class="card glass-card kpi-card p-3 d-flex flex-row align-items-center gap-3">
                                 <div class="kpi-icon-wrapper updates-bg">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-                                        <path d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
-                                        <path d="M8 4.4a.5.5 0 0 1 .5.5v2.5h2.5a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5z"/>
-                                        <path d="M12.854 4.854a.5.5 0 0 0 0-.707l-3-3a.5.5 0 1 0-.708.708L11.793 4.5 9.146 7.146a.5.5 0 0 0 .708.708l3-3z"/>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                        viewBox="0 0 16 16">
+                                        <path d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z" />
+                                        <path
+                                            d="M8 4.4a.5.5 0 0 1 .5.5v2.5h2.5a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5z" />
+                                        <path
+                                            d="M12.854 4.854a.5.5 0 0 0 0-.707l-3-3a.5.5 0 1 0-.708.708L11.793 4.5 9.146 7.146a.5.5 0 0 0 .708.708l3-3z" />
                                     </svg>
                                 </div>
                                 <div>
                                     <span class="kpi-label d-block text-muted-custom">Softwares Atualizados</span>
-                                    <h3 class="kpi-value m-0">{{ selectedVehicle ? (selectedVehicle.softwareUpdates) : '0' }}</h3>
+                                    <h3 class="kpi-value m-0">{{ selectedVehicle ? (selectedVehicle.softwareUpdates) :
+                                        '0' }}</h3>
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
-                    
-                    <div class="card glass-card center-display-card p-4 d-flex align-items-center justify-content-center">
+
+                    <div
+                        class="card glass-card center-display-card p-4 d-flex align-items-center justify-content-center">
                         <div class="display-vehicle-wrapper text-center w-100">
                             <h4 class="vehicle-title-display text-uppercase mb-2">
                                 FORD <span class="text-primary">{{ selectedVehicle?.vehicle || 'Carregando...' }}</span>
                             </h4>
                             <div class="img-container d-flex align-items-center justify-content-center my-3">
-                                <img 
-                                    *ngIf="selectedVehicle"
-                                    [src]="selectedVehicle.img" 
-                                    [alt]="selectedVehicle.vehicle" 
-                                    class="display-vehicle-img"
-                                >
+                                <img *ngIf="selectedVehicle" [src]="selectedVehicle.img" [alt]="selectedVehicle.vehicle"
+                                    class="display-vehicle-img">
                             </div>
                             <div class="vehicle-indicator-bar my-2 mx-auto"></div>
                         </div>
                     </div>
-                    
+
                     <div class="card glass-card p-4">
                         <div class="card-header-custom mb-3 d-flex justify-content-between align-items-center">
                             <div>
@@ -161,7 +160,7 @@
                                 VIN: {{ vinSearchTerm }}
                             </span>
                         </div>
-                        
+
                         <div class="table-responsive">
                             <table class="table table-custom align-middle m-0">
                                 <thead>
@@ -177,65 +176,66 @@
                                     <tr *ngIf="selectedVehicleData">
                                         <td>
                                             <div class="d-flex align-items-center gap-2">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="text-primary" viewBox="0 0 16 16">
-                                                    <path d="M8 2a.5.5 0 0 1 .5.5v1.5a.5.5 0 0 1-1 0v-1.5A.5.5 0 0 1 8 2zM3.732 3.732a.5.5 0 0 1 .707 0l1.06 1.06a.5.5 0 1 1-.707.708l-1.06-1.06a.5.5 0 0 1 0-.707zM2 8a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8zm9.536-4.268a.5.5 0 0 1 0 .707l-1.06 1.06a.5.5 0 1 1-.707-.708l1.06-1.06a.5.5 0 0 1 .707 0zm-1.06 9.192a.5.5 0 0 1-1.06 0l-1.06-1.06a.5.5 0 1 1 1.06-1.06l1.06 1.06a.5.5 0 0 1 0 1.06zm-6.364 0a.5.5 0 0 1 0-1.06l1.06-1.06a.5.5 0 1 1 1.06 1.06l-1.06 1.06a.5.5 0 0 1-1.06 0zM8 12a.5.5 0 0 1 .5.5v1.5a.5.5 0 0 1-1 0v-1.5A.5.5 0 0 1 8 12z"/>
-                                                    <path d="M8 5a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm0 1a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    fill="currentColor" class="text-primary" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M8 2a.5.5 0 0 1 .5.5v1.5a.5.5 0 0 1-1 0v-1.5A.5.5 0 0 1 8 2zM3.732 3.732a.5.5 0 0 1 .707 0l1.06 1.06a.5.5 0 1 1-.707.708l-1.06-1.06a.5.5 0 0 1 0-.707zM2 8a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8zm9.536-4.268a.5.5 0 0 1 0 .707l-1.06 1.06a.5.5 0 1 1-.707-.708l1.06-1.06a.5.5 0 0 1 .707 0zm-1.06 9.192a.5.5 0 0 1-1.06 0l-1.06-1.06a.5.5 0 1 1 1.06-1.06l1.06 1.06a.5.5 0 0 1 0 1.06zm-6.364 0a.5.5 0 0 1 0-1.06l1.06-1.06a.5.5 0 1 1 1.06 1.06l-1.06 1.06a.5.5 0 0 1-1.06 0zM8 12a.5.5 0 0 1 .5.5v1.5a.5.5 0 0 1-1 0v-1.5A.5.5 0 0 1 8 12z" />
+                                                    <path
+                                                        d="M8 5a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm0 1a2 2 0 1 1 0 4 2 2 0 0 1 0-4z" />
                                                 </svg>
-                                                <span class="fw-bold text-dark-custom">{{ selectedVehicleData.odometro}} km</span>
+                                                <span class="fw-bold text-dark-custom">{{ selectedVehicleData.odometro}}
+                                                    km</span>
                                             </div>
                                         </td>
-                                        
+
                                         <td>
                                             <div class="w-100">
                                                 <div class="d-flex justify-content-between align-items-center mb-1">
-                                                    <span class="small text-muted-custom">{{ selectedVehicleData.nivelCombustivel }}%</span>
+                                                    <span class="small text-muted-custom">{{
+                                                        selectedVehicleData.nivelCombustivel }}%</span>
                                                 </div>
                                                 <div class="progress progress-custom">
-                                                    <div>
-
-                                                        class="progress-bar" 
-                                                        role="progressbar" 
-                                                        [style.width.%]="selectedVehicleData.nivelCombustivel"
-                                                        [class.bg-danger]="selectedVehicleData.nivelCombustivel < 20"
-                                                        [class.bg-warning]="selectedVehicleData.nivelCombustivel >= 20 && selectedVehicleData.nivelCombustivel < 40"
-                                                        [class.bg-success]="selectedVehicleData.nivelCombustivel >= 40"
+                                                    <div class="progress-bar" role="progressbar"
+                                                        [style.width.%]="selectedVehicleData.nivelCombustivel" ...>
                                                     </div>
                                                 </div>
                                             </div>
                                         </td>
-                                        
+
                                         <!-- Field 3: Status -->
                                         <td>
-                                            <span 
-                                                class="badge badge-status" 
+                                            <span class="badge badge-status"
                                                 [class.status-active]="selectedVehicleData.status === 'on'"
-                                                [class.status-inactive]="selectedVehicleData.status === 'off'"
-                                            >
+                                                [class.status-inactive]="selectedVehicleData.status === 'off'">
                                                 <span class="status-dot"></span>
                                                 {{ selectedVehicleData.status === 'on' ? 'LIGADO' : 'DESLIGADO' }}
                                             </span>
                                         </td>
-                                        
+
                                         <!-- Field 4: Latitude -->
                                         <td>
                                             <span class="coordinate-text">{{ selectedVehicleData.lat }}</span>
                                         </td>
-                                        
+
                                         <!-- Field 5: Longitude -->
                                         <td>
                                             <span class="coordinate-text">{{ selectedVehicleData.long }}</span>
                                         </td>
                                     </tr>
-                                    
+
                                     <tr *ngIf="!selectedVehicleData">
                                         <td colspan="5" class="text-center py-5">
                                             <div class="text-muted-custom">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="mb-3 text-secondary" viewBox="0 0 16 16">
-                                                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-                                                    <path d="M11.354 5.646a.5.5 0 0 1 0 .708L7.707 10l-1.354-1.354a.5.5 0 1 1 .708-.708L7 8.293l2.854-2.853a.5.5 0 0 1 .708 0z"/>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"
+                                                    fill="currentColor" class="mb-3 text-secondary" viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                                    <path
+                                                        d="M11.354 5.646a.5.5 0 0 1 0 .708L7.707 10l-1.354-1.354a.5.5 0 1 1 .708-.708L7 8.293l2.854-2.853a.5.5 0 0 1 .708 0z" />
                                                 </svg>
                                                 <p class="mb-0">Nenhum dado encontrado para o código VIN informado.</p>
-                                                <small>Por favor, insira um código válido ou use um dos exemplos acima.</small>
+                                                <small>Por favor, insira um código válido ou use um dos exemplos
+                                                    acima.</small>
                                             </div>
                                         </td>
                                     </tr>
@@ -246,8 +246,8 @@
 
                 </div>
             </div>
-            
+
         </div>
     </div>
-    
+
 </div>
